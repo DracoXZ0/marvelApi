@@ -22,7 +22,7 @@ class estadoListaPersonajes extends State<listaPersonajes> {
     final hash = '944b28b6e085073b3373f7fc4eab1d16';
 
     final url =
-        'https://gateway.marvel.com:443/v1/public/characters?ts=$ts&apikey=$apiKey&hash=$hash&limit=50&offset=500';
+        'https://gateway.marvel.com:443/v1/public/characters?ts=$ts&apikey=$apiKey&hash=$hash';
 
     final response = await http.get(Uri.parse(url));
 
@@ -90,13 +90,8 @@ class estadoListaPersonajes extends State<listaPersonajes> {
       body: Center(
         child: characters.isEmpty
             ? CircularProgressIndicator()
-            : GridView.builder(
+            : ListView.builder(
                 padding: EdgeInsets.all(10),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                ),
                 itemCount: characters.length,
                 itemBuilder: (context, index) {
                   final character = characters[index];
@@ -105,15 +100,19 @@ class estadoListaPersonajes extends State<listaPersonajes> {
                       character['thumbnail']['extension'];
                   final name = character['name'];
                   return GestureDetector(
+                    onTap: () {
+                      _showCharacterDetail(index);
+                    },
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage(thumbnail),
+                      ),
+                      title: Text(name),
                       onTap: () {
                         _showCharacterDetail(index);
                       },
-                      child: CharacterTile(
-                        character: characters[index],
-                        onTap: () {
-                          _showCharacterDetail(index);
-                        },
-                      ));
+                    ),
+                  );
                 },
               ),
       ),

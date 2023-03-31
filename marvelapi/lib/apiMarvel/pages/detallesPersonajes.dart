@@ -15,7 +15,7 @@ class detallesPersonajes extends StatelessWidget {
   }) =>
       MaterialButton(
         onPressed: () {},
-        padding: EdgeInsets.symmetric(vertical: 7),
+        padding: const EdgeInsets.symmetric(vertical: 7),
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -23,26 +23,26 @@ class detallesPersonajes extends StatelessWidget {
           children: <Widget>[
             Text(
               '$value',
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16),
             ),
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
             Text(
               text,
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: Colors.white, fontSize: 16),
             )
           ],
         ),
       );
   Widget buildStaticsIcon(IconData icon) => CircleAvatar(
       radius: 25,
-      backgroundColor: Color.fromARGB(255, 237, 29, 36),
+      backgroundColor: const Color.fromARGB(255, 23, 162, 218),
       child: Material(
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         clipBehavior: Clip.hardEdge,
         color: Colors.transparent,
         child: InkWell(
@@ -59,51 +59,40 @@ class detallesPersonajes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        backgroundColor: Colors.black,
         title: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 80),
-          child: SizedBox(
-            height: 50,
-            child: Image.asset(
-              'assets/images/marvel_logo.png',
-              fit: BoxFit.cover,
-            ),
-          ),
+         
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.network(
-              character.image,
-              height: 300,
-              fit: BoxFit.cover,
-            ),
+
             Container(
-              height: 21,
+              height: 40,
+              
               decoration: BoxDecoration(
-                color: Colors.black,
-                border: Border.all(width: 0, color: Colors.transparent),
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.black,
-                border: Border.all(width: 0, color: Colors.transparent),
+                color: Color.fromARGB(255, 29, 159, 192),
+                border: Border.all(width: 0, color: const Color.fromARGB(0, 218, 206, 206)),
               ),
               child: Text(
                 character.name,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
+            Image.network(
+              character.image,
+              height: 300,
+              fit: BoxFit.cover,
+            ),
+            
             Container(
               height: 21,
               decoration: BoxDecoration(
@@ -119,7 +108,7 @@ class detallesPersonajes extends StatelessWidget {
               child: Text(
                 character.description,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 16,
                 ),
@@ -134,38 +123,21 @@ class detallesPersonajes extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: const Color.fromARGB(255, 52, 159, 192),
                 border: Border.all(width: 0, color: Colors.transparent),
               ),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      buildStaticsIcon(Icons.menu_book),
-                      const SizedBox(
-                        width: 37,
-                      ),
-                      buildStaticsIcon(Icons.connected_tv_outlined),
-                      const SizedBox(
-                        width: 37,
-                      ),
-                      buildStaticsIcon(Icons.history_edu),
-                      const SizedBox(
-                        width: 37,
-                      ),
-                      buildStaticsIcon(Icons.event_note_sharp)
-                    ],
-                  ),
+                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       buildButton(text: "Comics", value: character.comicsCount),
                       buildButton(text: "Series", value: character.seriesCount),
                       buildButton(
-                          text: "Historias", value: character.storiesCount),
+                          text: "Histories", value: character.storiesCount),
                       buildButton(
-                          text: "Eventos", value: character.eventsCount),
+                          text: "Events", value: character.eventsCount),
                     ],
                   ),
                 ],
@@ -174,23 +146,25 @@ class detallesPersonajes extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 16),
-                  Text(
-                    'Primeras tres series',
+                  const SizedBox(height: 16),
+                  const Text(
+                    
+                    'Tres primeras series: ',
+                    textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 20),
                   for (final seriesName in character.firstThreeSeriesNames)
                     Text(
                       seriesName,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
+                      textAlign: TextAlign.start,
+                      style: const TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0), fontSize: 16),
                     ),
                 ],
