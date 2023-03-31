@@ -13,7 +13,7 @@ class _mainApiMarvel extends State<mainApiMarvel> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Simon"),
+          title: const Text("Simon Londono Aguirre"),
         ),
         body: listaPersonajes());
   }
