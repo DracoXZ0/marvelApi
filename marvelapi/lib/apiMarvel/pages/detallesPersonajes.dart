@@ -15,7 +15,7 @@ class detallesPersonajes extends StatelessWidget {
   }) =>
       MaterialButton(
         onPressed: () {},
-        padding: const EdgeInsets.symmetric(vertical: 7),
+        padding: const EdgeInsets.symmetric(vertical: 6),
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -24,7 +24,7 @@ class detallesPersonajes extends StatelessWidget {
             Text(
               '$value',
               style: const TextStyle(
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 0, 0, 0),
                   fontWeight: FontWeight.bold,
                   fontSize: 16),
             ),
@@ -33,66 +33,30 @@ class detallesPersonajes extends StatelessWidget {
             ),
             Text(
               text,
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 16),
             )
           ],
         ),
       );
       
-  Widget buildStaticsIcon(IconData icon) => CircleAvatar(
-      radius: 50,
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
-      child: Material(
-        shape: const CircleBorder(),
-        clipBehavior: Clip.hardEdge,
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () {},
-          child: Center(
-            child: Icon(
-              icon,
-              color: Color.fromARGB(255, 255, 0, 0),
-              size: 32,
-            ),
-          ),
-        ),
-      ));
+  
   @override
   
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        title: Container(
-         
-        ),
+        title: Text(character.name),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
 
-            Container(
-              height: 40,
-              
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 255, 255, 255),
-                border: Border.all(width: 0, color: const Color.fromARGB(0, 218, 206, 206)),
-              ),
-              child: Text(
-                character.name,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Color.fromARGB(255, 255, 0, 0),
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
             Image.network(
               character.image,
               height: 300,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
             
             Container(
@@ -117,7 +81,7 @@ class detallesPersonajes extends StatelessWidget {
               ),
             ),
             Container(
-              height: 13,
+              height: 17,
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 244, 67, 54),
                 border: Border.all(width: 0, color: Colors.transparent),
@@ -140,11 +104,11 @@ class detallesPersonajes extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 15),
                   for (final seriesName in character.firstThreeSeriesNames)
                     Text(
                       seriesName,
-                      textAlign: TextAlign.start,
+                      textAlign: TextAlign.left,
                       style: const TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0), fontSize: 16),
                     ),
@@ -153,8 +117,8 @@ class detallesPersonajes extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 192, 52, 52),
-                border: Border.all(width: 0, color: Colors.transparent),
+                color: Color.fromARGB(255, 255, 0, 0),
+                border: Border.all(width: 10, color: Colors.transparent),
               ),
               child: Column(
                 children: [
