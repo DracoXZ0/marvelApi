@@ -38,9 +38,10 @@ class detallesPersonajes extends StatelessWidget {
           ],
         ),
       );
+      
   Widget buildStaticsIcon(IconData icon) => CircleAvatar(
-      radius: 25,
-      backgroundColor: const Color.fromARGB(255, 23, 162, 218),
+      radius: 50,
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       child: Material(
         shape: const CircleBorder(),
         clipBehavior: Clip.hardEdge,
@@ -50,16 +51,17 @@ class detallesPersonajes extends StatelessWidget {
           child: Center(
             child: Icon(
               icon,
-              color: Colors.white,
+              color: Color.fromARGB(255, 255, 0, 0),
               size: 32,
             ),
           ),
         ),
       ));
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         title: Container(
          
@@ -74,14 +76,14 @@ class detallesPersonajes extends StatelessWidget {
               height: 40,
               
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 29, 159, 192),
+                color: Color.fromARGB(255, 255, 255, 255),
                 border: Border.all(width: 0, color: const Color.fromARGB(0, 218, 206, 206)),
               ),
               child: Text(
                 character.name,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
+                  color: Color.fromARGB(255, 255, 0, 0),
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -96,53 +98,32 @@ class detallesPersonajes extends StatelessWidget {
             Container(
               height: 21,
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Color.fromARGB(255, 244, 67, 54),
                 border: Border.all(width: 0, color: Colors.transparent),
               ),
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.black,
-                border: Border.all(width: 0, color: Colors.transparent),
+                color: Color.fromARGB(255, 244, 67, 54),
+                border: Border.all(width: 0, color: Color.fromARGB(0, 0, 0, 0)),
               ),
               child: Text(
                 character.description,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
               ),
             ),
             Container(
               height: 13,
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Color.fromARGB(255, 244, 67, 54),
                 border: Border.all(width: 0, color: Colors.transparent),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 52, 159, 192),
-                border: Border.all(width: 0, color: Colors.transparent),
-              ),
-              child: Column(
-                children: [
-                  
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      buildButton(text: "Comics", value: character.comicsCount),
-                      buildButton(text: "Series", value: character.seriesCount),
-                      buildButton(
-                          text: "Histories", value: character.storiesCount),
-                      buildButton(
-                          text: "Events", value: character.eventsCount),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -167,6 +148,28 @@ class detallesPersonajes extends StatelessWidget {
                       style: const TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0), fontSize: 16),
                     ),
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 192, 52, 52),
+                border: Border.all(width: 0, color: Colors.transparent),
+              ),
+              child: Column(
+                children: [
+                  
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      buildButton(text: "Comics", value: character.comicsCount),
+                      buildButton(text: "Series", value: character.seriesCount),
+                      buildButton(
+                          text: "Histories", value: character.storiesCount),
+                      buildButton(
+                          text: "Events", value: character.eventsCount),
+                    ],
+                  ),
                 ],
               ),
             ),
