@@ -1,10 +1,11 @@
+// ignore_for_file: camel_case_types, use_key_in_widget_constructors
+
 import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:marvelapi/apiMarvel/pages/detallesPersonajes.dart';
-import 'package:marvelapi/apiMarvel/widget/character_tile.dart';
 
 import '../controlers/personajes.dart';
 
@@ -17,12 +18,8 @@ class estadoListaPersonajes extends State<listaPersonajes> {
   List<dynamic> characters = [];
 
   Future<void> getCharacters() async {
-    final ts = '07';
-    final apiKey = 'a752a4dfe2b6df0ff585bf8af2db7415';
-    final hash = '944b28b6e085073b3373f7fc4eab1d16';
-
-    final url =
-        'https://gateway.marvel.com:443/v1/public/characters?ts=$ts&apikey=$apiKey&hash=$hash';
+    const url =
+        'https://gateway.marvel.com:443/v1/public/characters?ts=07&apikey=a752a4dfe2b6df0ff585bf8af2db7415&hash=944b28b6e085073b3373f7fc4eab1d16';
 
     final response = await http.get(Uri.parse(url));
 
@@ -49,8 +46,7 @@ class estadoListaPersonajes extends State<listaPersonajes> {
         '.' +
         character['thumbnail']['extension'];
     final description = character['description'];
-    // Validación para cuando description sea nulo o esté vacío
-    final defaultDescription = 'Este personaje no tiene descripción.';
+    const defaultDescription = 'No hay descripcion para este personaje actualmente';
     final validDescription = (description == null || description.isEmpty)
         ? defaultDescription
         : description;
